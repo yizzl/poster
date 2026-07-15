@@ -1,0 +1,35 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.app-body {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.preview-area {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+  background: #2a2a2a;
+}
+
+.preview-area::-webkit-scrollbar {
+  width: 8px;
+}
+
+.preview-area::-webkit-scrollbar-track {
+  background: #2a2a2a;
+}
+
+.preview-area::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 4px;
+}

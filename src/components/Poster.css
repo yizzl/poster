@@ -1,0 +1,510 @@
+.poster-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+#poster-export-target {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+/* 通用海报样式 */
+.poster {
+  width: 400px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 图片占位符 */
+.img-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(128, 128, 128, 0.1);
+  border: 1px dashed rgba(128, 128, 128, 0.3);
+  color: rgba(128, 128, 128, 0.5);
+  font-size: 12px;
+}
+
+/* 分割线样式 */
+.divider {
+  display: inline-block;
+}
+
+.divider.thin {
+  height: 1px;
+  width: 40px;
+  background: var(--accent);
+}
+
+.divider.thick {
+  height: 3px;
+  width: 40px;
+  background: var(--accent);
+}
+
+.divider.decorated {
+  height: 1px;
+  width: 30px;
+  background: var(--accent);
+  position: relative;
+}
+
+.divider.decorated::after {
+  content: '◆';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 8px;
+  color: var(--accent);
+  background: var(--poster-bg);
+  padding: 0 4px;
+}
+
+.divider.double {
+  height: 5px;
+  width: 40px;
+  border-top: 1px solid var(--accent);
+  border-bottom: 1px solid var(--accent);
+}
+
+.divider.none {
+  display: none;
+}
+
+/* ===================== 深色主题 ===================== */
+.dark-poster {
+  min-height: 600px;
+}
+
+/* 主视觉 */
+.dark-main-visual {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.dark-main-image {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.dark-main-placeholder {
+  width: 100%;
+}
+
+.dark-overlay-gradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(to bottom, transparent, #1a1a1a);
+  pointer-events: none;
+}
+
+.dark-date-location {
+  position: absolute;
+  bottom: 16px;
+  left: 20px;
+  z-index: 2;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.dark-date {
+  font-size: 22px;
+  font-weight: 700;
+  font-family: 'Playfair Display', serif;
+}
+
+.dark-location {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.dark-vertical-text {
+  position: absolute;
+  top: 20px;
+  right: 16px;
+  z-index: 2;
+  writing-mode: vertical-rl;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: 'Playfair Display', serif;
+}
+
+.dark-author {
+  position: absolute;
+  bottom: 16px;
+  right: 20px;
+  z-index: 2;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* 标题区 */
+.dark-title-section {
+  padding: 28px 20px 24px;
+  text-align: center;
+}
+
+.dark-main-title {
+  font-size: 42px;
+  font-weight: 900;
+  margin: 0;
+  letter-spacing: 4px;
+  line-height: 1.2;
+}
+
+.dark-booth-number {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 6px 0 12px;
+  color: #fff;
+  letter-spacing: 2px;
+}
+
+.dark-section-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.dark-section-title {
+  font-size: 13px;
+  letter-spacing: 3px;
+  font-weight: 500;
+}
+
+.dark-slogan {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 8px;
+  letter-spacing: 1px;
+}
+
+/* 制品列表 */
+.dark-products {
+  padding: 0 20px 20px;
+}
+
+.dark-product-item {
+  padding: 18px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dark-product-number {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.dark-product-content {
+  display: flex;
+  gap: 14px;
+}
+
+.dark-product-content.layout-single-right {
+  flex-direction: row-reverse;
+}
+
+.dark-product-content.layout-grid-2x2,
+.dark-product-content.layout-multi {
+  flex-direction: column;
+}
+
+.dark-product-images {
+  flex-shrink: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.dark-product-content.layout-grid-2x2 .dark-product-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  width: 100%;
+}
+
+.dark-product-content.layout-grid-2x2 .dark-product-img,
+.dark-product-content.layout-multi .dark-product-img {
+  width: 100%;
+  height: auto;
+}
+
+.dark-product-img {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+.dark-product-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dark-product-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.dark-product-desc {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.5;
+}
+
+.dark-product-meta {
+  display: flex;
+  gap: 10px;
+  margin-top: 6px;
+  font-size: 12px;
+}
+
+.dark-product-price {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.dark-product-stock {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* 底部 */
+.dark-footer {
+  text-align: center;
+  padding: 16px;
+  border-top: 1px solid;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* ===================== 浅色主题 ===================== */
+.light-poster {
+  min-height: 600px;
+}
+
+/* 标题区 */
+.light-title-section {
+  padding: 36px 20px 16px;
+  text-align: center;
+}
+
+.light-main-image-wrap {
+  width: 100%;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.light-main-image {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.light-main-title {
+  font-size: 38px;
+  font-weight: 900;
+  margin: 0;
+  letter-spacing: 4px;
+  line-height: 1.2;
+}
+
+.light-english-title {
+  font-size: 11px;
+  color: #aaa;
+  letter-spacing: 4px;
+  margin-top: 4px;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.light-date-location {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 10px;
+  font-size: 12px;
+  color: #888;
+}
+
+.light-dot {
+  color: #ccc;
+}
+
+/* 分区标签 */
+.light-section-labels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 0 20px 16px;
+}
+
+.light-section-label {
+  padding: 3px 12px;
+  color: #fff;
+  font-size: 11px;
+  border-radius: 2px;
+  font-weight: 500;
+}
+
+/* 制品列表 */
+.light-products {
+  padding: 0 12px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.light-product-item {
+  background: #fff;
+  border-radius: 6px;
+  padding: 14px;
+  display: flex;
+  gap: 14px;
+  position: relative;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.light-product-images {
+  flex-shrink: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.light-product-images.layout-single-right {
+  order: 2;
+}
+
+.light-product-images.layout-grid-2x2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 200px;
+}
+
+.light-product-images.layout-multi {
+  flex-direction: row;
+}
+
+.light-product-img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 3px;
+}
+
+.light-product-images.layout-grid-2x2 .light-product-img {
+  width: 100%;
+  height: 96px;
+}
+
+.light-product-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+}
+
+.light-product-info-top {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.light-product-number {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.light-product-tag {
+  padding: 2px 8px;
+  color: #fff;
+  font-size: 10px;
+  border-radius: 2px;
+  font-weight: 500;
+}
+
+.light-product-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 3px;
+}
+
+.light-product-desc {
+  font-size: 12px;
+  color: #888;
+  line-height: 1.5;
+}
+
+.light-product-meta {
+  display: flex;
+  gap: 10px;
+  margin-top: 6px;
+  font-size: 12px;
+}
+
+.light-product-price {
+  font-weight: 600;
+}
+
+.light-product-stock {
+  color: #aaa;
+}
+
+/* X装饰 */
+.light-x-decoration {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+}
+
+.light-x-decoration span {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--accent);
+  opacity: 0.25;
+}
+
+.light-x-decoration span:first-child {
+  transform: rotate(45deg);
+}
+
+.light-x-decoration span:last-child {
+  transform: rotate(-45deg);
+}
+
+/* 底部 */
+.light-footer {
+  text-align: center;
+  padding: 16px;
+}
+
+.light-author {
+  font-size: 11px;
+  color: #bbb;
+}

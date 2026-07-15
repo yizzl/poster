@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=ZCOOL+XiaoWei&family=Ma+Shan+Zheng&family=ZCOOL+KuaiLe&family=Long+Cang&family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;600;700&family=Bebas+Neue&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #1e1e1e;
+  color: #e0e0e0;
+  overflow: hidden;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+}
