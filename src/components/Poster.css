@@ -1,12 +1,15 @@
 .poster-wrapper {
   display: flex;
   justify-content: center;
+  align-self: flex-start;
+  flex-shrink: 0;
 }
 
 #poster-export-target {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
   border-radius: 2px;
   overflow: hidden;
+  align-self: flex-start;
 }
 
 /* 通用海报样式 */
